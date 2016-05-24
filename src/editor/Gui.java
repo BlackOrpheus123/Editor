@@ -1,14 +1,11 @@
 package editor;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -83,13 +80,17 @@ public class Gui {
         type_fight.setBounds(200,440,100,100);
         panel.add(type_fight);
         
-        JCheckBox Type_Quest = new JCheckBox();
+        JRadioButton Type_Quest = new JRadioButton();
         Type_Quest.setBounds(110, 510, 20, 20);
         panel.add(Type_Quest);
   
-        JCheckBox Type_Fight = new JCheckBox();
+        JRadioButton Type_Fight = new JRadioButton();
         Type_Fight.setBounds(210, 510, 20, 20);
         panel.add(Type_Fight);
+        
+        ButtonGroup group = new ButtonGroup();	
+        group.add(Type_Quest);
+        group.add(Type_Fight);
         
         JLabel choose_quest = new JLabel("Quest wählen:");
         choose_quest.setBounds(100,530,100,100);
