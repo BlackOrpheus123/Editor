@@ -98,7 +98,7 @@ public class Gui {
         
         JComboBox Choose_quest = new JComboBox(quests);
         Choose_quest.setBounds(100,600,150,30);
-        Choose_quest.setEnabled(false);
+        Choose_quest.setEnabled(true);
         panel.add(Choose_quest);
         
         JLabel aussehen = new JLabel("Aussehen:");
