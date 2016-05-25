@@ -6,11 +6,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
-import java.util.Vector;
 
 import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -155,6 +155,11 @@ public class Gui {
         ButtonGroup group = new ButtonGroup();	
         group.add(Type_Quest);
         group.add(Type_Fight);
+        
+        JButton save = new JButton("NPC speichern");
+        save.setBounds(50,700,250,50);
+        save.setEnabled(true);
+        panel.add(save);
         
         JLabel health = new JLabel("Gesundheit:");
         health.setBounds(350,130,100,100);
