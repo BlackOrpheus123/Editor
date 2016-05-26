@@ -23,11 +23,11 @@ import javax.swing.JTextField;
 public class Gui {
 
 	private String geschlechter[] = {"Männlich", "Weiblich"}; 
-	private String quests[] = {"Quest 1", "Quest 2", "Quest 3"}; 
 	private String skins_male[] = {"Bauer 1", "Bauer 2", "Bauer 3", "Ritter"};
 	private String skins_female[] = {"Frau 1", "Frau 2", "Frau 3"};
 	
-
+	private String tasks[] = {"holen", "töten"};
+	private String target[] = {};
 	 
 
 
@@ -47,6 +47,117 @@ public class Gui {
         JLabel mainlabel = new JLabel(new ImageIcon(image1));
         mainlabel.setBounds(0,0,1200,800);
         
+///////////////////////QUEST-OTIONEN////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        JLabel task = new JLabel("Aufgabe:");
+        task.setBounds(600,30,100,100);
+        panel.add(task);
+
+        JComboBox Task = new JComboBox(tasks);
+        Task.setBounds(600,100,150,30);
+        panel.add(Task);
+        
+        JLabel target = new JLabel("Ziel - NPC:");
+        target.setBounds(600,130,100,100);
+        panel.add(target);
+
+        JComboBox Target = new JComboBox();
+        Target.setBounds(600,200,150,30);
+        panel.add(Target);
+        
+        JLabel item = new JLabel("Item:");
+        item.setBounds(600,230,100,100);
+        panel.add(item);
+
+        JComboBox Item = new JComboBox();
+        Item.setBounds(600,300,150,30);
+        panel.add(Item);
+        
+        JLabel count = new JLabel("Anzahl Items:");
+        count.setBounds(600,330,100,100);
+        panel.add(count);
+
+        JTextField Count = new JTextField();
+        Count.setBounds(600,400,150,30);
+        panel.add(Count);
+        
+        JLabel reward = new JLabel("Belohnung:");
+        reward.setBounds(600,430,100,100);
+        panel.add(reward);
+
+        JComboBox Reward = new JComboBox();
+        Reward.setBounds(600,500,150,30);
+        panel.add(Reward);
+        
+        JLabel reward_count = new JLabel("Anzahl Belohnung:");
+        reward_count.setBounds(600,530,120,100);
+        panel.add(reward_count);
+
+        JTextField Reward_count = new JTextField();
+        Reward_count.setBounds(600,600,150,30);
+        panel.add(Reward_count);
+///////////////////////QUEST-OTIONEN////////////////////////////////////////////////////////////////////////////////////////////////////////////////        
+        
+        
+        
+        
+///////////////////////KAMPF-OTIONEN////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        JLabel health = new JLabel("Gesundheit:");
+        health.setBounds(350,30,100,100);
+        panel.add(health);
+
+        JTextField Health = new JTextField();
+        Health.setBounds(350,100,150,30);
+        panel.add(Health);
+       
+        
+        JLabel defense = new JLabel("Verteidigung:");
+        defense.setBounds(350,130,100,100);
+        panel.add(defense);
+
+        JTextField Defense = new JTextField();
+        Defense.setBounds(350,200,150,30);
+        panel.add(Defense);
+        
+        JLabel damage = new JLabel("Schaden:");
+        damage.setBounds(350,230,100,100);
+        panel.add(damage);
+
+        JTextField Damage = new JTextField();
+        Damage.setBounds(350,300,150,30);
+        panel.add(Damage);
+        
+        JLabel initiative = new JLabel("Initiative:");
+        initiative.setBounds(350,330,100,100);
+        panel.add(initiative);
+
+        JTextField Initiative = new JTextField();
+        Initiative.setBounds(350,400,150,30);
+        panel.add(Initiative);
+        
+        JLabel win_xp = new JLabel("Gewonnene XP:");
+        win_xp.setBounds(350,430,120,100);
+        panel.add(win_xp);
+
+        JTextField win_XP = new JTextField();
+        win_XP.setBounds(350,500,150,30);
+        panel.add(win_XP);
+        
+        JLabel lost_xp = new JLabel("Verlorene XP:");
+        lost_xp.setBounds(350,530,120,100);
+        panel.add(lost_xp);
+
+        JTextField lost_XP = new JTextField();
+        lost_XP.setBounds(350,600,150,30);
+        panel.add(lost_XP);
+        
+///////////////////////KAMPF-OTIONEN////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        
+        
+        
+///////////////////////BASIC-OTIONEN////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         JLabel vorname = new JLabel("Vorname:");
         vorname.setBounds(100,30,100,100);
         panel.add(vorname);
@@ -72,11 +183,11 @@ public class Gui {
         panel.add(ID);
         
         JLabel aussehen = new JLabel("Aussehen:");
-        aussehen.setBounds(350,30,100,100);
+        aussehen.setBounds(100,530,100,100);
         panel.add(aussehen);
 
         JComboBox Aussehen = new JComboBox(skins_male);
-        Aussehen.setBounds(350,100,150,30);
+        Aussehen.setBounds(100,600,150,30);
         Aussehen.setEnabled(true);
         panel.add(Aussehen);
         
@@ -123,21 +234,26 @@ public class Gui {
         type_fight.setBounds(200,440,100,100);
         panel.add(type_fight);
         
-        JLabel choose_quest = new JLabel("Quest wählen:");
-        choose_quest.setBounds(100,530,100,100);
-        panel.add(choose_quest);
-        
-        JComboBox Choose_quest = new JComboBox(quests);
-        Choose_quest.setBounds(100,600,150,30);
-        Choose_quest.setEnabled(false);
-        panel.add(Choose_quest);
-        
         JRadioButton Type_Quest = new JRadioButton();
         Type_Quest.setBounds(110, 510, 20, 20);
         Type_Quest.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-            Choose_quest.setEnabled(true);
+            //Quest-Fenster
+            Task.setEnabled(true);
+            Target.setEnabled(true);
+            Item.setEnabled(true);
+            Count.setEnabled(true);
+            Reward.setEnabled(true);
+            Reward_count.setEnabled(true);	
+            	
+            //Fight-Fenster	
+            Damage.setEnabled(false);
+            Defense.setEnabled(false);
+            Initiative.setEnabled(false);
+            win_XP.setEnabled(false);
+            lost_XP.setEnabled(false);
+            Health.setEnabled(false);
             }
         });
         panel.add(Type_Quest);
@@ -147,7 +263,21 @@ public class Gui {
         Type_Fight.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-            Choose_quest.setEnabled(false);
+            //Quest-Fenster
+            Task.setEnabled(false);
+            Target.setEnabled(false);
+            Item.setEnabled(false);
+            Count.setEnabled(false);
+            Reward.setEnabled(false);
+            Reward_count.setEnabled(false);
+            	
+            //Fight-Fenster	
+            Damage.setEnabled(true);
+            Defense.setEnabled(true);
+            Initiative.setEnabled(true);
+            win_XP.setEnabled(true);
+            lost_XP.setEnabled(true);
+            Health.setEnabled(true);
             }
         });
         panel.add(Type_Fight);
@@ -156,18 +286,18 @@ public class Gui {
         group.add(Type_Quest);
         group.add(Type_Fight);
         
+///////////////////////BASIC-OTIONEN////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        
+        
+        
+        
         JButton save = new JButton("NPC speichern");
-        save.setBounds(50,700,250,50);
+        save.setBounds(900,700,250,50);
         save.setEnabled(true);
         panel.add(save);
         
-        JLabel health = new JLabel("Gesundheit:");
-        health.setBounds(350,130,100,100);
-        panel.add(health);
 
-        JTextField Health = new JTextField();
-        Health.setBounds(350,200,150,30);
-        panel.add(Health);
         
         frame.add(panel);
         frame.setVisible(true);
